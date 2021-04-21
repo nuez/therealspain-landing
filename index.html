@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <title>Experience the Real Spain</title>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-M9NXQ3C');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Rent a rural holiday home in the real Spain.">
+    <meta property="og:image" content="https://registrate.autenticaespana.es/images/mockup.png">
+    <meta property="og:image:height" content="743">
+    <meta property="og:image:width" content="424">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Rent a rural holiday home in the real Spain.">
+    <meta property="og:description"
+          content="Experience the unexpected Spanish country side.">
+    <meta property="og:url" content="https://propietarios.autenticaespana.es">
+    <meta name="author" content="Teun van Veggel">
+    <meta name="keywords" content="holiday home rental rural">
+    <link rel="stylesheet" href="/css/main.css?20210414">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- End Facebook Pixel Code -->
+</head>
+<body>
+<!-- End Google Tag Manager (noscript) -->
+<section class="section hero is-fullheight main">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-vcentered is-variable is-5">
+                <div class="column is-5-desktop is-half content">
+                    <img src="/logo.svg?update-09-2020" alt="EchtSpanje logo" loading="lazy"
+                         style="max-width: 14rem; width:100%"/>
+                    <h1 class="is-size-2">
+                        Discover the <span class="has-text-primary">Real</span> Spain.
+                    </h1>
+                    <div class="description is-size-4" style="hyphens: none">
+                        <strong>
+                            Coming soon: a new platform to discover the spanish country side like you've never seen it before.
+                        </strong>
+                    </div>
+                    <br>
+
+                    <a class="button is-primary is-large"
+                       onclick="getElementById('contact-form').classList.add('is-active')">Interested?</a>
+                </div>
+                <div class="column"></div>
+                <div class="column column  is-half">
+                    <figure>
+                        <img src="/images/mockup.svg" loading="lazy" alt="autenticaespaña.es Mockup Macbook"/>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="contact-form" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box">
+            <p class="has-text-centered is-size-3">
+               Leave your email address
+            </p>
+            <p class="has-text-centered">
+                and we'll keep you posted.
+            </p>
+            <br>
+            <br>
+            <form id="autentica-espana-contact-form" class="form" action="https://formspree.io/f/mleadoag"
+                  method="POST">
+                <div class="field is-grouped">
+                    <div class="control is-expanded">
+                        <input type="email" name="email" placeholder="email" class="input is-large"
+                               required="required"/>
+                    </div>
+                    <div class="control">
+                        <button id="autentica-espana-contact-form submit" class="button is-primary input is-large">
+                            Send
+                        </button>
+                    </div>
+                </div>
+                <p id="autentica-espana-contact-form-status" class="has-text-centered is-size-5"></p>
+            </form>
+
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"
+            onclick="getElementById('contact-form').classList.remove('is-active')"></button>
+</div>
+
+<script>
+    var form = document.getElementById("autentica-espana-contact-form");
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("autentica-espana-contact-form-status");
+        var data = new FormData(event.target);
+        fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            status.innerHTML = "Thank you for being interested.";
+            form.reset()
+        }).catch(error => {
+            status.innerHTML = "Alá Algo ha fallado"
+        });
+    }
+
+    form.addEventListener("submit", handleSubmit)
+</script>
+</body>
+</html>
